@@ -1,9 +1,9 @@
 
 Pod::Spec.new do |spec|
 
-  spec.name         = "SupportIODemo.podspec"
-  spec.version      = "0.0.1"
-  spec.summary      = "Demo framework of SupportIO Framework"
+  spec.name         = "SupportIODemo"
+  spec.version      = "0.0.2"
+  spec.summary      = "Demo framework of SupportIO"
 
   spec.description  = <<-DESC
 Demo framework of SupportIO Framework
@@ -19,6 +19,6 @@ Demo framework of SupportIO Framework
 
   spec.source       = { :git => "https://github.com/JhanviGM/SupportIODemo.git", :tag => "#{spec.version}" }
 
-  spec.dependency = 'Socket.IO-Client-Swift'
+spec.dependency "Socket.IO-Client-Swift"
 
 end
