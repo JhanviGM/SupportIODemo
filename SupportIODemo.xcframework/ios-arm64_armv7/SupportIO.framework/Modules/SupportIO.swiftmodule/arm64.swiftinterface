@@ -1,0 +1,172 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.3 (swiftlang-1200.0.29.2 clang-1200.0.30.1)
+// swift-module-flags: -target arm64-apple-ios10.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name SupportIO
+import AVFoundation
+import Foundation
+import MobileCoreServices
+import Photos
+import SafariServices
+import SocketIO
+@_exported import SupportIO
+import Swift
+import UIKit
+import WebKit
+extension String {
+  public func isMatch(regEx: Swift.String) -> Swift.Bool
+  public var isPhoneNumber: Swift.Bool {
+    get
+  }
+  public var isEmail: Swift.Bool {
+    get
+  }
+}
+public typealias AgentCallback = ([Any]) -> ()
+public func dLog(_ message: @autoclosure () -> Swift.String, filename: Swift.String = #file, function: Swift.String = #function, line: Swift.Int = #line)
+public func AcquireLog(_ message: @autoclosure () -> Swift.String, filename: Swift.String = #file, function: Swift.String = #function, line: Swift.Int = #line)
+@objc public enum AcquireIOAPNSTokenType : Swift.Int {
+  case unknown = 0
+  case sandbox
+  case prod
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public enum AcquireIOPushMessageStatus : Swift.Int {
+  case unknown
+  case new
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public enum AcquireIOAgentStatus : Swift.Int {
+  case online = 0
+  case offline
+  case invisible
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public enum AcquireIOConnectionStatus : Swift.Int {
+  case notConnected = 0
+  case disconnected
+  case connecting
+  case connected
+  case sessionStarted
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public enum AcquireIOInteractionEventType : Swift.Int {
+  case audioCallStarted = 0
+  case videoCallStarted
+  case audioCallAnswered
+  case videoCallAnswered
+  case callDeclined
+  case callAutoDeclined
+  case callerViewMinimize
+  case callerViewMaximize
+  case callerViewCameraSwitchToFront
+  case callerViewCameraSwitchToBack
+  case callSpeakerOn
+  case callSpeakerOff
+  case callMute
+  case callUnmute
+  case callVideoOn
+  case callVideoOff
+  case callDisconnected
+  case conversationStart
+  case conversationEnd
+  case conversationFeedbackSubmit
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public protocol AcquireIODelegate {
+  func didChangeConnectionStatus(status: SupportIO.AcquireIOConnectionStatus)
+  func didChangeAgentStatus(agentID: Swift.String, andStatus status: SupportIO.AcquireIOAgentStatus)
+  func didUpdateUnreadCount(_ count: Swift.Int)
+  func hideSupport()
+  func onError(error: Swift.Error)
+  func didUserInteracted(withEvent type: SupportIO.AcquireIOInteractionEventType, withData data: [Swift.String : Any]?)
+  func onAgentConnected()
+  func didReceiveTriggerEvent(_ eventName: Swift.String)
+}
+extension AcquireIODelegate {
+  public func didChangeConnectionStatus(status: SupportIO.AcquireIOConnectionStatus)
+  public func didChangeAgentStatus(agentID: Swift.String, andStatus status: SupportIO.AcquireIOAgentStatus)
+  public func didUpdateUnreadCount(_ count: Swift.Int)
+  public func hideSupport()
+  public func onError(error: Swift.Error)
+  public func didUserInteracted(withEvent type: SupportIO.AcquireIOInteractionEventType, withData data: [Swift.String : Any]?)
+  public func onAgentConnected()
+  public func didReceiveTriggerEvent(_ eventName: Swift.String)
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class AcquireIO : ObjectiveC.NSObject {
+  @objc public static let support: SupportIO.AcquireIO
+  final public var delegate: SupportIO.AcquireIODelegate?
+  @objc final public func setAccount(_ accountUID: Swift.String, withOptions optionDictionary: SupportIO.AcquireIOConfig?)
+  @objc deinit
+}
+extension AcquireIO {
+  @objc final public func showSupport(_ viewController: UIKit.UIViewController)
+  @objc final public func startSession()
+  @objc final public func setAPNSToken(_ apnsToken: Foundation.Data, type: SupportIO.AcquireIOAPNSTokenType)
+  @objc final public func appDidReceiveMessage(message: [Swift.AnyHashable : Any]) -> SupportIO.AcquireIOPushMessageStatus
+  @objc final public func setVisitorIdentifier(visitorIdentifier: Swift.String)
+  @objc final public func setVisitor(_ name: Swift.String?, phone: Swift.String?, email: Swift.String?, department: Swift.String?)
+  @objc final public func setVisitorExtraField(_ fields: [[Swift.String : Any]])
+  @objc final public func setVisitorHash(_ visitorHash: Swift.String)
+  @objc final public func getConnectionStatus() -> SupportIO.AcquireIOConnectionStatus
+  @objc final public func logoutVisitor()
+  @objc final public func onError(error: Swift.Error)
+  @objc final public func getAvailableAgentCount() -> Swift.Int
+}
+extension UIViewController {
+  @objc override dynamic open func awakeFromNib()
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class AcquireIOConfig : ObjectiveC.NSObject {
+  @objc public static let config: SupportIO.AcquireIOConfig
+  @objc final public var buttonImageName: Swift.String
+  @objc final public var webSocketServer: Swift.String
+  @objc final public var useDefaultTheme: Swift.Bool
+  @objc final public var themeOptions: [Swift.String : Any]
+  @objc final public var showAvatar: Swift.Bool
+  @objc final public var showThreadList: Swift.Bool
+  @objc final public var showChatButton: Swift.Bool
+  @objc final public var showVideoButton: Swift.Bool
+  @objc final public var showAudioButton: Swift.Bool
+  @objc final public var showLocalNotificationInApp: Swift.Bool
+  @objc final public var sessionConnectAndStartAuto: Swift.Bool
+  @objc final public var removeVideoCallDisconnectButton: Swift.Bool
+  @objc final public var removeAudioCallDisconnectButton: Swift.Bool
+  @objc final public var disableAttachment: Swift.Bool
+  @objc final public var removeCallViewResizeButton: Swift.Bool
+  @objc final public var isHideNewChat: Swift.Bool
+  @objc final public func setDict(_ dict: [Swift.String : Any])
+  @objc deinit
+}
+extension SupportIO.AcquireIOAPNSTokenType : Swift.Equatable {}
+extension SupportIO.AcquireIOAPNSTokenType : Swift.Hashable {}
+extension SupportIO.AcquireIOAPNSTokenType : Swift.RawRepresentable {}
+extension SupportIO.AcquireIOPushMessageStatus : Swift.Equatable {}
+extension SupportIO.AcquireIOPushMessageStatus : Swift.Hashable {}
+extension SupportIO.AcquireIOPushMessageStatus : Swift.RawRepresentable {}
+extension SupportIO.AcquireIOAgentStatus : Swift.Equatable {}
+extension SupportIO.AcquireIOAgentStatus : Swift.Hashable {}
+extension SupportIO.AcquireIOAgentStatus : Swift.RawRepresentable {}
+extension SupportIO.AcquireIOConnectionStatus : Swift.Equatable {}
+extension SupportIO.AcquireIOConnectionStatus : Swift.Hashable {}
+extension SupportIO.AcquireIOConnectionStatus : Swift.RawRepresentable {}
+extension SupportIO.AcquireIOInteractionEventType : Swift.Equatable {}
+extension SupportIO.AcquireIOInteractionEventType : Swift.Hashable {}
+extension SupportIO.AcquireIOInteractionEventType : Swift.RawRepresentable {}
