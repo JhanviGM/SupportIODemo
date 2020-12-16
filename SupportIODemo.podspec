@@ -2,7 +2,7 @@
 Pod::Spec.new do |spec|
 
   spec.name         = "SupportIODemo"
-  spec.version      = "0.0.11"
+  spec.version      = "0.0.12"
   spec.summary      = "Demo framework of SupportIO"
 
   spec.description  = <<-DESC
@@ -21,7 +21,7 @@ Demo framework of SupportIO Framework
 
   spec.dependency 'Socket.IO-Client-Swift', '~> 15.2.0'
 
-  spec.ios.vendored_frameworks = 'SupportIODemo/SupportIODemo.xcframework/ios-arm64_armv7/SupportIO.framework', 'SupportIODemo/SupportIODemo.xcframework/ios-arm64_i386_x86_64-simulator/SupportIO.framework'
+  spec.vendored_frameworks = 'SupportIODemo/SupportIODemo.xcframework'
 
   spec.frameworks  = 'SupportIODemo', 'UIKit'
 
