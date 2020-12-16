@@ -2,7 +2,7 @@
 Pod::Spec.new do |spec|
 
   spec.name         = "SupportIODemo"
-  spec.version      = "0.0.13"
+  spec.version      = "0.0.14"
   spec.summary      = "Demo framework of SupportIO"
 
   spec.description  = <<-DESC
@@ -23,8 +23,6 @@ Demo framework of SupportIO Framework
 
   spec.ios.vendored_frameworks = 'SupportIODemo.xcframework'
 
-  spec.framework    = 'SupportIODemo'
-  
-  spec.frameworks   = 'SupportIODemo','UIKit'
+  spec.frameworks   = 'UIKit'
 
 end
