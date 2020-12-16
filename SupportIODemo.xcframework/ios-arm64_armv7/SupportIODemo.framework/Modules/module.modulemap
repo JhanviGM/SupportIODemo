@@ -1,0 +1,4 @@
+framework module SupportIODemo {
+  header "SupportIODemo-Swift.h"
+  requires objc
+}

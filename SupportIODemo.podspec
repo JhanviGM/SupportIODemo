@@ -2,7 +2,7 @@
 Pod::Spec.new do |spec|
 
   spec.name         = "SupportIODemo"
-  spec.version      = "0.0.14"
+  spec.version      = "0.0.15"
   spec.summary      = "Demo framework of SupportIO"
 
   spec.description  = <<-DESC
