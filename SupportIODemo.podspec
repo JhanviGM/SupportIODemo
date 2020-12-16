@@ -2,7 +2,7 @@
 Pod::Spec.new do |spec|
 
   spec.name         = "SupportIODemo"
-  spec.version      = "0.0.17"
+  spec.version      = "0.0.18"
   spec.summary      = "Demo framework of SupportIO"
 
   spec.description  = <<-DESC
@@ -25,6 +25,6 @@ Demo framework of SupportIO Framework
 
 	spec.frameworks  = 'SupportIODemo', 'UIKit'
 
-
+spec.xcconfig                  = { 'LD_RUNPATH_SEARCH_PATHS' => '@loader_path/../Frameworks', 'ENABLE_BITCODE'=> 'NO'}
 
 end
