@@ -2,7 +2,7 @@
 Pod::Spec.new do |spec|
 
   spec.name         = "SupportIODemo"
-  spec.version      = "0.0.20"
+  spec.version      = "0.0.21"
   spec.summary      = "Demo framework of SupportIO"
 
   spec.description  = <<-DESC
@@ -27,13 +27,12 @@ Pod::Spec.new do |spec|
 
   #spec.xcconfig     = { 'LD_RUNPATH_SEARCH_PATHS' => '@loader_path/../Frameworks', 'ENABLE_BITCODE'=> 'NO'}
 
-s.pod_target_xcconfig = {
+spec.pod_target_xcconfig = {
   # this could theoretically apply to any `s.dependency` as well
   'BUILD_LIBRARY_FOR_DISTRIBUTION' => 'YES'
 }
 
   spec.swift_version = "5.0"
-
 
 
 end
