@@ -2,11 +2,11 @@
 Pod::Spec.new do |spec|
 
   spec.name         = "SupportIODemo"
-  spec.version      = "0.0.18"
+  spec.version      = "0.0.19"
   spec.summary      = "Demo framework of SupportIO"
 
   spec.description  = <<-DESC
-Demo framework of SupportIO Framework
+			Demo framework of SupportIO Framework
                    DESC
 
   spec.homepage     = "https://github.com/JhanviGM/SupportIODemo"
@@ -19,12 +19,16 @@ Demo framework of SupportIO Framework
 
   spec.source       = { :git => "https://github.com/JhanviGM/SupportIODemo.git", :tag => "#{spec.version}" }
 
-  spec.dependency 'Socket.IO-Client-Swift', '~> 15.2.0'
+  spec.dependency 'Socket.IO-Client-Swift', '15.2.0'
 
-  spec.ios.vendored_frameworks = 'SupportIODemo.xcframework'
+  spec.vendored_frameworks = 'SupportIODemo.xcframework'
 
-	spec.frameworks  = 'SupportIODemo', 'UIKit'
+  spec.frameworks   = 'UIKit'
 
-spec.xcconfig                  = { 'LD_RUNPATH_SEARCH_PATHS' => '@loader_path/../Frameworks', 'ENABLE_BITCODE'=> 'NO'}
+  spec.xcconfig     = { 'LD_RUNPATH_SEARCH_PATHS' => '@loader_path/../Frameworks', 'ENABLE_BITCODE'=> 'NO'}
+
+  spec.swift_version = "5.0"
+
+
 
 end
